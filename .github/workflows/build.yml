@@ -1,8 +1,10 @@
 name: Build Forge Mod
+
 on:
   push:
     branches: ["**"]
   workflow_dispatch: {}
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -12,6 +14,7 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
+      # Pin Gradle 7.5.1 - ForgeGradle 6.x does NOT support Gradle 9.x.
       - uses: gradle/actions/setup-gradle@v3
         with:
           gradle-version: '7.5.1'
